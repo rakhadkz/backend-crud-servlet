@@ -9,18 +9,12 @@ import java.io.IOException;
 @WebServlet(name = "ClearCookieServlet")
 public class ClearCookieServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Cookie[] cookies = request.getCookies();
-        if (cookies != null)
-            for (Cookie cookie : cookies) {
-                cookie.setValue("");
-                cookie.setPath("/");
-                cookie.setMaxAge(0);
-                response.addCookie(cookie);
-            }
-        response.sendRedirect("cart");
+        //Clear all items from HashMap cart
+        Database.cart1.clear();
+        response.sendRedirect("catalogs");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.getRequestDispatcher("cart.jsp").forward(request, response);
+
     }
 }

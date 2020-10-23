@@ -22,12 +22,13 @@
             out.print("<p class='display-4 text-center mt-5' >No items</p>");
     %>
     <div class="list-group mt-5">
-
         <c:forEach var="product" items="${products}">
             <form action="cart" method="post">
                 <input type="hidden" name="productID" value="${product.id}">
                 <input type="hidden" name="price" value="${product.price}">
-                <button type="submit" class="list-group-item list-group-item-action">${product.name}</button>
+                <button type="submit" class="list-group-item d-flex justify-content-between align-items-center list-group-item-action">${product.name}
+                    <span class="badge badge-primary badge-pill">${product.price} тг</span>
+                </button>
             </form>
         </c:forEach>
     </div>

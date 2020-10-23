@@ -1,10 +1,9 @@
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
@@ -18,6 +17,11 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         session.setAttribute("login", login);
+        Date date = new Date(session.getCreationTime());
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yy");
+        Cookie cookie = new Cookie("session_created_at", simpleDateFormat.format(date));
+        cookie.setMaxAge(20);
+        response.addCookie(cookie);
         response.sendRedirect("catalogs");
     }
 

@@ -1,4 +1,4 @@
-public class CatalogModel {
+public class CatalogModel{
     private String name;
 
     public CatalogModel(String name) {

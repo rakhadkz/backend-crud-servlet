@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 @WebServlet(name = "ProductServlet")
 public class ProductServlet extends HttpServlet {
@@ -30,7 +31,7 @@ public class ProductServlet extends HttpServlet {
         return null;
     }
 
-    private ArrayList<ProductModel> productList(){
+    private LinkedList<ProductModel> productList(){
         return new Database().list;
     }
 }

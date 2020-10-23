@@ -12,6 +12,17 @@ public class ProductModel {
         this.catalog = catalog;
     }
 
+    public ProductModel(String id, String name, int price){
+        this.id = id;
+        this.name = name;
+        this.price = price;
+    }
+
+    public ProductModel(String name, int price){
+        this.name = name;
+        this.price = price;
+    }
+
     public String getId() {
         return id;
     }

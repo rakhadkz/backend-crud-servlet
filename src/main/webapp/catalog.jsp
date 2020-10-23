@@ -17,9 +17,25 @@
 </head>
 <body>
 <div class="container">
-    <div class="list-group mt-5">
+    <div style="display: flex; justify-content: space-between; align-items: baseline">
+        <div>
+            <form class="form mt-5" action="catalogs" method="post">
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary mb-2">Search by name A-Z</button>
+                </div>
+            </form>
+        </div>
+        <div style="display: flex">
+            <a href="cart" class="btn btn-link">Go to cart</a>
+            <form action="logout" method="post">
+                <button type="submit" class="btn btn-danger">Log out</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="list-group mt-1">
         <c:forEach var="catalog" items="${catalogs}">
-            <a href="products?catalog=${catalog}" class="list-group-item list-group-item-action">${catalog}</a>
+            <a href="products?catalog=${catalog.name}" class="list-group-item list-group-item-action">${catalog.name}</a>
         </c:forEach>
     </div>
 </div>
